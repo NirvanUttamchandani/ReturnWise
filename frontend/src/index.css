@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  --color-navy-950: #09131f;
+  --color-navy-900: #0e1b2c;
+  --color-navy-800: #15263b;
+  --color-navy-700: #1f3450;
+  --color-navy-300: #9db0c8;
+  --color-navy-100: #d9e2ee;
+
+  --color-paper: #faf8f5;
+  --color-surface: #ffffff;
+  --color-line: #e6e1d9;
+  --color-line-strong: #d3ccc0;
+  --color-ink: #17212e;
+  --color-muted: #5b6676;
+
+  --color-teal-50: #e9f6f4;
+  --color-teal-100: #cdeae6;
+  --color-teal-600: #0f7f78;
+  --color-teal-700: #0b6862;
+  --color-teal-400: #2dd4bf;
+
+  --color-ok-bg: #e7f5ec;   --color-ok: #17683a;
+  --color-warn-bg: #fdf1dc; --color-warn: #8a5300;
+  --color-bad-bg: #fdeaea;  --color-bad: #a02020;
+  --color-info-bg: #e8eff9; --color-info: #274f8f;
+  --color-idle-bg: #eeebe5; --color-idle: #5b6676;
+
+  --shadow-card: 0 1px 2px rgb(23 33 46 / 0.05);
+  --shadow-pop: 0 8px 24px rgb(23 33 46 / 0.12);
+}
+
+html, body, #root { height: 100%; }
+body { background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 2px solid var(--color-teal-600); outline-offset: 2px; border-radius: 4px; }
+.num { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.skeleton { background: linear-gradient(90deg, #efebe4 25%, #f7f4ee 50%, #efebe4 75%); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; border-radius: 6px; }

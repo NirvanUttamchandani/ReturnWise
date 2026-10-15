@@ -1,0 +1,135 @@
+{
+  "_meta": {
+    "title": "ReturnWise Fictional Store Return Policy",
+    "version": "1.0",
+    "effective_date": "2024-01-01",
+    "disclaimer": "These are entirely fictional policies created for a college Agentic AI demonstration project. They do not represent the policies of any real retailer."
+  },
+  "global_rules": {
+    "reference_date": "2025-02-15",
+    "note": "The reference date is pinned so all return-window calculations are reproducible.",
+    "boundary": "Inclusive start (delivery date counts as day 0). A 30-day window expires after day 30, i.e. delivery_date + 30 days >= reference_date is within window.",
+    "eligible_order_statuses": ["delivered"],
+    "ineligible_order_statuses": ["pending", "processing", "cancelled", "returned"],
+    "minimum_refund_amount": 0.01,
+    "refund_equals_order_total": true,
+    "allow_partial_refund": false
+  },
+  "categories": {
+    "electronics": {
+      "policy_id": "POL-ELEC-001",
+      "return_window_days": 30,
+      "returnable": true,
+      "replacement_only": false,
+      "damaged_allowed": true,
+      "notes": "Electronics may be returned within 30 days of delivery for any reason. Damaged items are accepted with photo evidence (simulated). Original packaging not required for this PoC."
+    },
+    "clothing": {
+      "policy_id": "POL-CLTH-002",
+      "return_window_days": 60,
+      "returnable": true,
+      "replacement_only": false,
+      "damaged_allowed": true,
+      "notes": "Clothing items may be returned within 60 days. Damaged or defective items accepted. Changed-mind returns accepted within window."
+    },
+    "books": {
+      "policy_id": "POL-BOOK-003",
+      "return_window_days": 30,
+      "returnable": true,
+      "replacement_only": false,
+      "damaged_allowed": true,
+      "notes": "Books may be returned within 30 days if unread or damaged. Wrong-item returns always accepted within window."
+    },
+    "furniture": {
+      "policy_id": "POL-FURN-004",
+      "return_window_days": 14,
+      "returnable": true,
+      "replacement_only": false,
+      "damaged_allowed": true,
+      "notes": "Furniture has a shorter 14-day return window due to logistics. Damaged-on-arrival claims accepted within 14 days."
+    },
+    "toys": {
+      "policy_id": "POL-TOYS-005",
+      "return_window_days": 30,
+      "returnable": true,
+      "replacement_only": false,
+      "damaged_allowed": true,
+      "notes": "Toys may be returned within 30 days. Safety defects are grounds for replacement or refund."
+    },
+    "health_safety": {
+      "policy_id": "POL-HLTH-006",
+      "return_window_days": 30,
+      "returnable": true,
+      "replacement_only": true,
+      "damaged_allowed": true,
+      "notes": "Health and safety items may only be replaced, not refunded, for hygiene reasons. Damaged items qualify for replacement within 30 days."
+    },
+    "digital": {
+      "policy_id": "POL-DIGI-007",
+      "return_window_days": 0,
+      "returnable": false,
+      "replacement_only": false,
+      "damaged_allowed": false,
+      "notes": "Digital goods (software licenses, e-books, streaming codes) are non-returnable once delivered. No exceptions."
+    },
+    "perishable": {
+      "policy_id": "POL-PERI-008",
+      "return_window_days": 0,
+      "returnable": false,
+      "replacement_only": false,
+      "damaged_allowed": false,
+      "notes": "Perishable food items are non-returnable due to health regulations."
+    },
+    "intimate_apparel": {
+      "policy_id": "POL-INTM-009",
+      "return_window_days": 0,
+      "returnable": false,
+      "replacement_only": false,
+      "damaged_allowed": false,
+      "notes": "Intimate apparel is non-returnable for hygiene reasons."
+    },
+    "sports": {
+      "policy_id": "POL-SPRT-010",
+      "return_window_days": 30,
+      "returnable": true,
+      "replacement_only": false,
+      "damaged_allowed": true,
+      "notes": "Sports equipment may be returned within 30 days. Defective items may be returned for refund or replacement."
+    },
+    "appliances": {
+      "policy_id": "POL-APPL-011",
+      "return_window_days": 30,
+      "returnable": true,
+      "replacement_only": false,
+      "damaged_allowed": true,
+      "notes": "Home appliances may be returned within 30 days. Damaged or defective items accepted."
+    }
+  },
+  "reason_rules": {
+    "defective": {
+      "description": "Item stopped working or never worked correctly.",
+      "always_eligible_if_in_window": true,
+      "notes": "Defective claims are accepted for all returnable categories if within return window."
+    },
+    "wrong_item": {
+      "description": "Customer received a different item than ordered.",
+      "always_eligible_if_in_window": true,
+      "notes": "Wrong-item claims are accepted for returnable categories if within window and the order is delivered. Non-returnable categories are rejected for every reason (the PoC does not model seller-error exceptions)."
+    },
+    "damaged": {
+      "description": "Item arrived visibly damaged.",
+      "eligible_if_damaged_allowed": true,
+      "notes": "Only categories with damaged_allowed=true qualify. Non-returnable categories are excluded."
+    },
+    "changed_mind": {
+      "description": "Customer no longer wants the item.",
+      "eligible_if_in_window": true,
+      "notes": "Accepted for all returnable categories within the return window. Not accepted for restricted categories."
+    },
+    "other": {
+      "description": "Other or unspecified reason.",
+      "requires_manual_review": true,
+      "notes": "Reason 'other' always triggers a manual review recommendation."
+    }
+  }
+}

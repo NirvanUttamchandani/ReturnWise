@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Test / tool caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Runtime databases (created automatically on first run; never commit)
+*.db
+*.db-wal
+*.db-shm
+*.sqlite3
+
+# Secrets and local settings
+.env
+.env.*
+.streamlit/secrets.toml
+*.key
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+build/
+*.egg-info/
+
+# Frontend
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+playwright-report/
+test-results/
